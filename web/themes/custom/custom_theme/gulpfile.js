@@ -35,7 +35,7 @@ gulp.task('prod', ['bower', 'assets'], function () {
     }).on('error', sass.logError))
     .pipe(postcss(processors))
     .pipe(gulp.dest(output))
-    .pipe(gulp.dest(drupalTheme + output));
+    .pipe(gulp.dest(drupalTheme + 'css'));
 });
 
 gulp.task('dev', ['bower', 'assets'], function () {
