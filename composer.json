@@ -109,6 +109,9 @@
       },
       "drupal/config_installer": {
         "config_installer_install_uninstalled_profile_dependencies() assumes too much": "https://www.drupal.org/files/issues/config_installer_2729243_2.patch"
+      },
+      "drupal/entity_reference_revisions": {
+        "EntityReference migrate destination": "https://www.drupal.org/files/issues/entityreference_migrate-2809793-56.patch"
       }
     },
     "drupal-scaffold": {
