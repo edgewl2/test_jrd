@@ -1,0 +1,36 @@
+id: books
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Migration of Books Content type'
+source:
+  plugin: csv
+  path: modules/custom/topics_migrate/assets/csv/books.csv
+  header_row_count: 1
+  keys:
+    - id
+process:
+  title: title
+  body: desc
+  field_name: title
+  field_cover:
+    plugin: migration
+    migration: media
+    source: img
+    no_stub: true
+  field_topic:
+    -
+      plugin: explode
+      source: topic
+      delimiter: ','
+    -
+      plugin: migration
+      migration: topics
+      no_stub: true
+destination:
+  plugin: 'entity:node'
+  default_bundle: books
+migration_dependencies:
+  require:
+    - media
+    - topics

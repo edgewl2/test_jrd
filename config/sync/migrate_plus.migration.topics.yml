@@ -32,4 +32,6 @@ process:
   field_description: topic_desc
 destination:
   plugin: 'entity:taxonomy_term'
-migration_dependencies: null
+migration_dependencies:
+  require:
+    - media
