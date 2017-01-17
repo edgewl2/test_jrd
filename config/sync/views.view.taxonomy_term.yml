@@ -216,13 +216,13 @@ display:
       style:
         type: default
         options:
-          grouping: {  }
           row_class: ''
           default_row_class: true
           uses_fields: false
       row:
         type: 'entity:node'
         options:
+          relationship: none
           view_mode: teaser
       header:
         entity_taxonomy_term:
@@ -235,7 +235,7 @@ display:
           empty: true
           tokenize: true
           target: '{{ raw_arguments.tid }}'
-          view_mode: full
+          view_mode: expose
           bypass_access: false
           plugin_id: entity
       footer: {  }
@@ -303,6 +303,20 @@ display:
         options: {  }
       path: taxonomy/term/%
       display_extenders: {  }
+      style:
+        type: default
+        options:
+          row_class: col-md-4
+          default_row_class: true
+          uses_fields: false
+      defaults:
+        style: false
+        row: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser
     cache_metadata:
       contexts:
         - 'languages:language_interface'

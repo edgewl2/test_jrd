@@ -1,0 +1,65 @@
+uuid: 474b2289-fc9c-4b63-b546-386547f00020
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image
+    - field.field.node.books.body
+    - field.field.node.books.field_cover
+    - field.field.node.books.field_name
+    - field.field.node.books.field_topic
+    - node.type.books
+  module:
+    - content_moderation
+    - entity_browser
+    - text
+id: node.books.default
+targetEntityType: node
+bundle: books
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_cover:
+    weight: 2
+    settings:
+      entity_browser: image
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      open: false
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+  field_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_topic:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

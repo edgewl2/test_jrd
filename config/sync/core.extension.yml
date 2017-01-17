@@ -45,6 +45,10 @@ module:
   media_entity_document: 0
   media_entity_image: 0
   menu_ui: 0
+  migrate: 0
+  migrate_plus: 0
+  migrate_source_csv: 0
+  migrate_tools: 0
   node: 0
   options: 0
   page_cache: 0
@@ -62,6 +66,7 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  topics_migrate: 0
   tour: 0
   twig_tweak: 0
   update: 0

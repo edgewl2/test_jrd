@@ -1,0 +1,22 @@
+uuid: 311b9fa0-69bc-4620-8868-e342cc37220b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_description
+    - taxonomy.vocabulary.topics
+  module:
+    - text
+id: taxonomy_term.topics.field_description
+field_name: field_description
+entity_type: taxonomy_term
+bundle: topics
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

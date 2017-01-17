@@ -1,0 +1,9 @@
+uuid: 138a10c9-d14e-4e90-8dfa-a05f97efa85c
+langcode: en
+status: true
+dependencies: {  }
+name: Topics
+vid: topics
+description: 'Category of Literature'
+hierarchy: 0
+weight: 0

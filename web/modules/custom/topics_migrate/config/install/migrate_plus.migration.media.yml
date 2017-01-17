@@ -1,0 +1,22 @@
+id: media
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Migration of Media files'
+source:
+  plugin: csv
+  path: modules/custom/topics_migrate/assets/csv/files.csv
+  header_row_count: 1
+  keys:
+    - images
+process:
+  field_image:
+    plugin: migration
+    migration: files
+    source: images
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  require:
+    - files

@@ -1,0 +1,28 @@
+uuid: 8f635ded-9088-4d7c-9bc1-95e66efa6d39
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: tvnAKGyEhI03UMeKb7z6zjKdN1oakNyBXOn5yMMEtXo
+id: media
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Migration of Media files'
+source:
+  plugin: csv
+  path: modules/custom/topics_migrate/assets/csv/files.csv
+  header_row_count: 1
+  keys:
+    - images
+process:
+  field_image:
+    plugin: migration
+    migration: files
+    source: images
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  require:
+    - files

@@ -1,0 +1,50 @@
+uuid: cf40ca4d-c133-4146-b612-93c150a5953a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vnRSspBpX4U8p0tWw_-1qkQt-4PDEhCRM5mn098e6KE
+id: files
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Migration of Files'
+source:
+  constants:
+    source_base_path: modules/custom/topics_migrate/assets/img
+    uri_base_path: 'public://images'
+  plugin: csv
+  path: modules/custom/topics_migrate/assets/csv/files.csv
+  header_row_count: 1
+  keys:
+    - images
+process:
+  filename: images
+  source_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/source_base_path
+        - '@filename'
+    -
+      plugin: urlencode
+  uri_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/uri_base_path
+        - '@filename'
+    -
+      plugin: urlencode
+  uri:
+    plugin: file_copy
+    source:
+      - '@source_full_path'
+      - '@uri_full_path'
+destination:
+  plugin: 'entity:file'
+migration_dependencies:
+  require: {  }
+  optional: {  }

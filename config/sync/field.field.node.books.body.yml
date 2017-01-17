@@ -1,0 +1,22 @@
+uuid: faf27f07-41df-4928-b12c-0b669c7296a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.books
+  module:
+    - text
+id: node.books.body
+field_name: body
+entity_type: node
+bundle: books
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

@@ -1,0 +1,35 @@
+uuid: ab8d2b70-cda1-4559-b7d8-6645a63a932e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Gz6E9GaL4rcddTxbNPOwT4YhdTD-Qw8ZFt9h-x4wdOg
+id: topics
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Migration of Topics Terms'
+source:
+  plugin: csv
+  path: modules/custom/topics_migrate/assets/csv/topics.csv
+  header_row_count: 1
+  keys:
+    - topic
+process:
+  vid:
+    plugin: default_value
+    default_value: topics
+  name:
+    plugin: skip_on_empty
+    method: row
+    source: topic
+  field_title: topic
+  field_image:
+    plugin: migration
+    migration: media
+    source: topic_img
+    no_stub: true
+  field_description: topic_desc
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: null

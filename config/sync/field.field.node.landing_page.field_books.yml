@@ -1,0 +1,28 @@
+uuid: db4e12a1-d7a2-4a75-ba64-96f15b7a9ad0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_books
+    - node.type.landing_page
+    - taxonomy.vocabulary.topics
+id: node.landing_page.field_books
+field_name: field_books
+entity_type: node
+bundle: landing_page
+label: Books
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
