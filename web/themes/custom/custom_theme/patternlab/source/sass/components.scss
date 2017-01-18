@@ -4,10 +4,20 @@
  *
  * CSS rules that style design components (and their associated states and themes.)
  */
-
 .field--name-field-image img {
-  margin-top:10%;
-  margin-left: 25%;
+  margin-top: 10%;
+}
+
+.field--name-field-image{
+  .field--name-field-image img {
+    margin-left: 25%;
+  }
+}
+
+.field--name-field-cover{
+  .field--name-field-image img {
+    margin-left: 18%;
+  }
 }
 a {
   .field--name-field-title{
