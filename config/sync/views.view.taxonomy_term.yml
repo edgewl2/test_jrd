@@ -54,9 +54,12 @@ display:
         type: mini
         options:
           items_per_page: 10
-          offset: 0
+          offset: 1
           id: 0
           total_pages: 0
+          tags:
+            previous: ‹‹
+            next: ››
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -65,35 +68,22 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
       sorts:
-        sticky:
-          id: sticky
-          table: taxonomy_index
-          field: sticky
-          order: DESC
-          plugin_id: standard
+        changed:
+          id: changed
+          table: node_field_data
+          field: changed
           relationship: none
           group_type: group
           admin_label: ''
-          exposed: false
-          expose:
-            label: ''
-        created:
-          id: created
-          table: taxonomy_index
-          field: created
           order: DESC
-          plugin_id: date
-          relationship: none
-          group_type: group
-          admin_label: ''
           exposed: false
           expose:
             label: ''
           granularity: second
+          entity_type: node
+          entity_field: changed
+          plugin_id: date
       arguments:
         tid:
           id: tid
@@ -225,19 +215,30 @@ display:
           relationship: none
           view_mode: teaser
       header:
-        entity_taxonomy_term:
-          id: entity_taxonomy_term
+        entity_node:
+          id: entity_node
           table: views
-          field: entity_taxonomy_term
+          field: entity_node
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
+          empty: false
           tokenize: true
           target: '{{ raw_arguments.tid }}'
-          view_mode: expose
+          view_mode: default
           bypass_access: false
           plugin_id: entity
+        view:
+          id: view
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          view_to_insert: 'taxonomy_term:block_1'
+          inherit_arguments: false
+          plugin_id: view
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -253,6 +254,30 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       max-age: -1
+      tags: {  }
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: Block
+    position: 3
+    display_options:
+      display_extenders: {  }
+      pager:
+        type: some
+        options:
+          items_per_page: 1
+          offset: 0
+      defaults:
+        pager: false
+        header: false
+      header: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
       tags: {  }
   feed_1:
     id: feed_1
@@ -312,11 +337,24 @@ display:
       defaults:
         style: false
         row: false
+        header: false
       row:
         type: 'entity:node'
         options:
           relationship: none
           view_mode: teaser
+      header:
+        view:
+          id: view
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          view_to_insert: 'taxonomy_term:block_1'
+          inherit_arguments: true
+          plugin_id: view
     cache_metadata:
       contexts:
         - 'languages:language_interface'

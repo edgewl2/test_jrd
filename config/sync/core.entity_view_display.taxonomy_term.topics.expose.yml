@@ -1,18 +1,26 @@
-uuid: 62d78fe5-ae74-4713-8880-973b8fbe11c4
+uuid: 55be0f73-991a-417e-810f-7d8716520978
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.taxonomy_term.teaser
+    - core.entity_view_mode.taxonomy_term.expose
     - field.field.taxonomy_term.topics.field_description
     - field.field.taxonomy_term.topics.field_image
     - field.field.taxonomy_term.topics.field_title
     - taxonomy.vocabulary.topics
-id: taxonomy_term.topics.teaser
+  module:
+    - text
+id: taxonomy_term.topics.expose
 targetEntityType: taxonomy_term
 bundle: topics
-mode: teaser
+mode: expose
 content:
+  field_description:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
   field_image:
     weight: 0
     label: hidden
@@ -22,12 +30,11 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
   field_title:
-    type: string
     weight: 1
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    type: string
 hidden:
   description: true
-  field_description: true
