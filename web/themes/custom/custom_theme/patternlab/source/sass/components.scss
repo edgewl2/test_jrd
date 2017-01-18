@@ -5,4 +5,15 @@
  * CSS rules that style design components (and their associated states and themes.)
  */
 
-
+.field--name-field-image img {
+  margin-top:10%;
+  margin-left: 25%;
+}
+a {
+  .field--name-field-title{
+    text-align: center;
+  }
+  .field--name-field-name{
+    text-align: center;
+  }
+}
